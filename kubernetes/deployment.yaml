@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tirthankara
+spec:
+  replicas: 2 # Run two copies of the application
+  selector: 
+    mathLabels:
+      app: tirthankara
+  template:
+    metadata:
+      labels:
+        app: tirthankara
+    spec:
+      containers:
+      - name: tirthankara
+        image: tirthankara:latest
+        ports:
+        - containerPort: 5001
+        env:
+        - name: STABILITY_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: stability-api-secret
+              key: api-key
