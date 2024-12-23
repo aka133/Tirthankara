@@ -35,7 +35,7 @@ Tirthankara/
 
 ## For Users
 To use Tirthankara, simply:
-1. Visit the web interface at 'http://<cluster-ip>' (exact address will be updated after deployment)
+1. Visit the web interface at 'http://<cluster-ip>' (exact address will be updated after deployment -- currently the model is only deployed on a local network)
 2. Enter your prompt in the text field
 3. Click "Generate" to create your artwork
 
