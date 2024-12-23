@@ -3,9 +3,9 @@ kind: Deployment
 metadata:
   name: tirthankara
 spec:
-  replicas: 2 # Run two copies of the application
-  selector: 
-    mathLabels:
+  replicas: 2  # Two replicas for high availability
+  selector:
+    matchLabels:
       app: tirthankara
   template:
     metadata:
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: tirthankara
-        image: tirthankara:latest
+        image: registry.local:30500/tirthankara:v1
         ports:
         - containerPort: 5001
         env:
@@ -23,3 +23,10 @@ spec:
             secretKeyRef:
               name: stability-api-secret
               key: api-key
+        resources:
+          requests:
+            cpu: 250m
+            memory: 256Mi
+          limits:
+            cpu: 500m
+            memory: 512Mi
