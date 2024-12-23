@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: tirthankara
-        image: registry.local:30500/tirthankara:v1
+        image: 192.168.86.39:30500/tirthankara:v2 
         ports:
         - containerPort: 5001
         env:
