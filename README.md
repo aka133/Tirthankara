@@ -1,7 +1,7 @@
 # Tirthankara
 
 ## Project Overview
-Tirthankara is a web application that creates retrofuturistic artwork using AI. Built with Flask and deployed on a home Kubernetes cluster, it provides a web interface for users to generate images by entering text prompts. The project demonstrates modern deployment practices using container orchestration on affordable hardware.
+Tirthankara is a web application that creates retrofuturistic artwork using AI. Built with Flask and deployed on a home Kubernetes cluster, it provides a web interface for users to generate images by entering text prompts. The project demonstrates modern deployment practices using container orchestration on affordable hardware. There is also a GitHub Actions workflow for CI/CD.
 
 ## How It Works
 Users can interact with Tirthankara in two ways:
@@ -27,6 +27,7 @@ Tirthankara/
 ├── kubernetes/            
 │   ├── deployment.yaml
 │   └── service.yaml
+├── .github/workflows/deploy.yml
 ├── Dockerfile
 ├── requirements.txt
 └── README.md
