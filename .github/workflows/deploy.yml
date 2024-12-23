@@ -1,0 +1,19 @@
+name: Tirthankara CI/CD
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
+    
+    - name: Build Docker Image
+      run: |
+        docker build --platform linux/arm64 -t tirthankara:${{ github.sha }} .
