@@ -9,11 +9,23 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
-    
+    - name: Checkout Repository
+      uses: actions/checkout@v4  
+
+    - name: Set up QEMU
+      uses: docker/setup-qemu-action@v3
+      with:
+        platforms: arm64
+
     - name: Set up Docker Buildx
-      uses: docker/setup-buildx-action@v1
-    
+      uses: docker/setup-buildx-action@v3
+      with:
+        platforms: linux/arm64
+
     - name: Build Docker Image
       run: |
-        docker build --platform linux/arm64 -t tirthankara:${{ github.sha }} .
+        docker buildx build \
+          --platform linux/arm64 \
+          -t tirthankara:${{ github.sha }} \
+          --output type=docker \
+          .
